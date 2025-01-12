@@ -2,7 +2,7 @@
 # this is a repository for reference code snippets
 
 # Gson
-# accessing multilavel keys 
+# accessing multilevel keys 
 ```java
 public static JsonObject getNestedValue(JsonObject jsonObject, String... Keys) {
         JsonElement element = jsonObject;
