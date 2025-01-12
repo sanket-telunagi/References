@@ -1,5 +1,27 @@
 # References
 # this is a repository for reference code snippets
+
+# Gson
+# accessing multilavel keys 
+```java
+public static JsonObject getNestedValue(JsonObject jsonObject, String... Keys) {
+        JsonElement element = jsonObject;
+        for (String key : Keys) {
+            // System.out.println(key);
+            if (element.isJsonObject()) {
+                element = element.getAsJsonObject().get(key);
+                // System.out.println(element);
+            } else if (isYamlKey(key)) {
+                String yamlString = element.getAsJsonObject().get(key).getAsString();
+                String jsonStringFromYaml = convertYamlToJson(yamlString);
+                element = JsonParser.parseString(jsonStringFromYaml).getAsJsonObject();
+            } else {
+                return null;
+            }
+        }
+        return element != null ? element.getAsJsonObject() : null;
+    }
+```
 # java read json file using gson
 # updating json file using gson
 # updating the json file using gson 
@@ -22,3 +44,5 @@ try(Connection connection = DriverManager.getConnection(connURL)) {
     return false ;
 }
 ```
+
+
