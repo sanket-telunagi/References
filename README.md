@@ -44,5 +44,4 @@ try(Connection connection = DriverManager.getConnection(connURL)) {
     return false ;
 }
 ```
-
-
+# converting java project into java array with all dependancies compiled 
